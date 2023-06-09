@@ -22,8 +22,3 @@ GoodSpending berfungsi sebagai alat bantu yang membantu pengguna untuk memonitor
 2. General user: Seluruh user aplikasi
 3. Writer user: User yang menulis Financial News
 4. Editor: User yang mengawasi blog
-
-## src
-Tutorial 1: Dasar-Dasar Git dan Django. (2023). PBP Fasilkom UI. Retrieved from https://pbp-fasilkom-ui.github.io/genap-2023/tutorial/tutorial-1/
-
->>>>>>> 9f59bb45bf1f7e426b42f2b0260ab6cfacce8396
