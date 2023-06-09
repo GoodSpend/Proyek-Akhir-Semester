@@ -1,6 +1,11 @@
 {
+<<<<<<< HEAD
     "name": "goodspend",
     "short_name": "goodspend",
+=======
+    "name": "good_spend",
+    "short_name": "good_spend",
+>>>>>>> 9f59bb45bf1f7e426b42f2b0260ab6cfacce8396
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
