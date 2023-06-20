@@ -6,6 +6,8 @@ import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'pages/loan_calculator.dart';
 import 'pages/form_blog.dart';
+import 'pages/create_financial_news.dart';
+import 'pages/financial_news.dart';
 
 class DrawerClass extends StatefulWidget {
   DrawerClass({Key? key}) : super(key: key);
@@ -93,6 +95,21 @@ class _DrawerClassState extends State<DrawerClass> {
                 context,
                 MaterialPageRoute<void>(
                   builder: (BuildContext context) => const DataPage(),
+                ),
+              );
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.chat),
+            title: const Text(
+              'Financial News',
+              style: TextStyle(fontSize: 20),
+            ),
+            onTap: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute<void>(
+                  builder: (BuildContext context) => const FinancialNews(),
                 ),
               );
             },
