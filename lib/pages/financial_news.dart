@@ -9,6 +9,7 @@ import 'package:goodspend/utility/fetch_news.dart';
 import 'package:goodspend/drawer.dart';
 import '../model/global.dart' as global;
 import 'edit_financial_news.dart';
+import 'create_financial_news.dart';
 
 class FinancialNews extends StatefulWidget {
   const FinancialNews({Key? key}) : super(key: key);
@@ -29,6 +30,20 @@ class _FinancialNewsState extends State<FinancialNews> {
           title: const Text('Financial News'),
           backgroundColor: Color.fromRGBO(127, 195, 126, 1),
           foregroundColor: Color.fromRGBO(51, 51, 51, 1),
+          actions: [
+            IconButton(
+              icon: Icon(Icons.add),
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute<void>(
+                    builder: (BuildContext context) =>
+                        const CreateFinancialNews(),
+                  ),
+                );
+              },
+            ),
+          ],
         ),
         drawer: DrawerClass(),
         body: Column(
