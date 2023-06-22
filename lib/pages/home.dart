@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:goodspend/drawer.dart';
 import 'package:goodspend/pages/form_blog.dart';
 import 'package:goodspend/pages/loan_calculator.dart';
+import 'package:goodspend/pages/financial_news.dart';
+import 'package:goodspend/pages/data.dart';
 
 class UserHomePage extends StatelessWidget {
   const UserHomePage({Key? key}) : super(key: key);
-  
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Color.fromRGBO(51, 51, 51, 1),
-      appBar: AppBar(
-        title: Text("GoodSpend"),
-        backgroundColor: Color.fromRGBO(127, 195, 126, 1),
-        foregroundColor: Color.fromRGBO(51, 51, 51, 1),
-      ),
-      drawer: DrawerClass(),
-      body: Stack(
-        children: <Widget>[
+        backgroundColor: Color.fromRGBO(51, 51, 51, 1),
+        appBar: AppBar(
+          title: Text("GoodSpend"),
+          backgroundColor: Color.fromRGBO(127, 195, 126, 1),
+          foregroundColor: Color.fromRGBO(51, 51, 51, 1),
+        ),
+        drawer: DrawerClass(),
+        body: Stack(children: <Widget>[
           Container(
             height: size.height,
             decoration: BoxDecoration(
@@ -31,7 +31,6 @@ class UserHomePage extends StatelessWidget {
           ),
           const Padding(
             padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
-            // Widget Text untuk menampilkan tulisan dengan alignment center dan style yang sesuai
             child: Text(
               'Selamat datang!',
               textAlign: TextAlign.center,
@@ -41,7 +40,6 @@ class UserHomePage extends StatelessWidget {
               ),
             ),
           ),
-          // Grid layout
           GridView.count(
             primary: true,
             padding: const EdgeInsets.all(20),
@@ -52,16 +50,15 @@ class UserHomePage extends StatelessWidget {
             children: <Widget>[
               Material(
                 color: Colors.green,
-                child: InkWell( // Area responsive terhadap sentuhan
+                child: InkWell(
                   onTap: () {
-                    // Memunculkan SnackBar ketika diklik
                     Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(
-          builder: (context) => const BlogFormPage()),
-    );
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const BlogFormPage()),
+                    );
                   },
-                  child: Container( // Container untuk menyimpan Icon dan Text
+                  child: Container(
                     padding: const EdgeInsets.all(8),
                     child: Center(
                       child: Column(
@@ -88,10 +85,11 @@ class UserHomePage extends StatelessWidget {
                 color: Colors.green,
                 child: InkWell(
                   onTap: () {
-                    ScaffoldMessenger.of(context)
-                    ..hideCurrentSnackBar()
-                    ..showSnackBar(const SnackBar(
-                      content: Text("Kamu telah menekan tombol Logout!")));
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const FinancialNews()),
+                    );
                   },
                   child: Container(
                     padding: const EdgeInsets.all(8),
@@ -100,8 +98,103 @@ class UserHomePage extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: const [
                           Icon(
-                            // Kamu juga dapat mengggunakan icon lainnya
-                            // seperti Icons.logout
+                            Icons.new_releases,
+                            color: Colors.white,
+                            size: 30.0,
+                          ),
+                          Padding(padding: EdgeInsets.all(3)),
+                          Text(
+                            "Financial News",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Material(
+                color: Colors.green,
+                child: InkWell(
+                  onTap: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => const DataPage()),
+                    );
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.all(8),
+                    child: Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Icon(
+                            Icons.data_usage,
+                            color: Colors.white,
+                            size: 30.0,
+                          ),
+                          Padding(padding: EdgeInsets.all(3)),
+                          Text(
+                            "Data",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Material(
+                color: Colors.green,
+                child: InkWell(
+                  onTap: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LoanCalculatorPage()),
+                    );
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.all(8),
+                    child: Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Icon(
+                            Icons.calculate,
+                            color: Colors.white,
+                            size: 30.0,
+                          ),
+                          Padding(padding: EdgeInsets.all(3)),
+                          Text(
+                            "Loan Calculator",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Material(
+                color: Colors.green,
+                child: InkWell(
+                  onTap: () {
+                    ScaffoldMessenger.of(context)
+                      ..hideCurrentSnackBar()
+                      ..showSnackBar(const SnackBar(
+                          content: Text("Kamu telah menekan tombol Logout!")));
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.all(8),
+                    child: Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Icon(
                             Icons.door_back_door,
                             color: Colors.white,
                             size: 30.0,
@@ -118,10 +211,8 @@ class UserHomePage extends StatelessWidget {
                   ),
                 ),
               ),
-        ],
-      ),
-    ]
-    )
-    );
+            ],
+          ),
+        ]));
   }
 }

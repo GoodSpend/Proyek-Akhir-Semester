@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:goodspend/pages/landing_page.dart';
+import 'package:goodspend/drawer.dart';
 
 class DataPage extends StatefulWidget {
   const DataPage({super.key});
@@ -21,10 +22,13 @@ class _DataPageState extends State<DataPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromRGBO(51, 51, 51, 1),
       appBar: AppBar(
-        title: Text('Form'),
+        title: Text('Data Pengeluaran'),
+        backgroundColor: Color.fromRGBO(127, 195, 126, 1),
+        foregroundColor: Color.fromRGBO(51, 51, 51, 1),
       ),
-      drawer: const Drawer(),
+      drawer: DrawerClass(),
       body: Form(
         key: _formKey,
         child: SingleChildScrollView(
@@ -36,9 +40,14 @@ class _DataPageState extends State<DataPage> {
                   // Menggunakan padding sebesar 8 pixels
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
+                    style: TextStyle(color: Color.fromRGBO(254, 254, 226, 1)),
                     decoration: InputDecoration(
                       hintText: "Contoh: Tagihan UKT",
                       labelText: "Nama Pengeluaran",
+                      hintStyle:
+                          TextStyle(color: Color.fromRGBO(254, 254, 226, 1)),
+                      labelStyle:
+                          TextStyle(color: Color.fromRGBO(127, 195, 126, 1)),
                       // Menambahkan icon agar lebih intuitif
                       icon: const Icon(Icons.edit_note),
                       // Menambahkan circular border agar lebih rapi
@@ -72,6 +81,9 @@ class _DataPageState extends State<DataPage> {
                   title: const Text(
                     'Tipe Pengeluaran:',
                   ),
+                  titleTextStyle: TextStyle(
+                    color: Color.fromRGBO(254, 254, 226, 1),
+                  ),
                   trailing: DropdownButton(
                     value: tipePengeluaran,
                     icon: const Icon(Icons.keyboard_arrow_down),
@@ -99,6 +111,10 @@ class _DataPageState extends State<DataPage> {
                     decoration: InputDecoration(
                       hintText: "Contoh: 1000000",
                       labelText: "Jumlah Pengeluaran",
+                      hintStyle:
+                          TextStyle(color: Color.fromRGBO(254, 254, 226, 1)),
+                      labelStyle:
+                          TextStyle(color: Color.fromRGBO(127, 195, 126, 1)),
                       // Menambahkan icon agar lebih intuitif
                       icon: const Icon(Icons.edit_note),
                       // Menambahkan circular border agar lebih rapi
@@ -134,6 +150,10 @@ class _DataPageState extends State<DataPage> {
                     decoration: InputDecoration(
                       hintText: "Contoh: 18 Maret 2024",
                       labelText: "Deadline Pengeluaran",
+                      hintStyle:
+                          TextStyle(color: Color.fromRGBO(254, 254, 226, 1)),
+                      labelStyle:
+                          TextStyle(color: Color.fromRGBO(127, 195, 126, 1)),
                       // Menambahkan icon agar lebih intuitif
                       icon: const Icon(Icons.notes),
                       // Menambahkan circular border agar lebih rapi
@@ -169,6 +189,10 @@ class _DataPageState extends State<DataPage> {
                     decoration: InputDecoration(
                       hintText: "Contoh: Tagihan Semester 10!",
                       labelText: "Deskripsi Pengeluaran",
+                      hintStyle:
+                          TextStyle(color: Color.fromRGBO(254, 254, 226, 1)),
+                      labelStyle:
+                          TextStyle(color: Color.fromRGBO(127, 195, 126, 1)),
                       // Menambahkan icon agar lebih intuitif
                       icon: const Icon(Icons.notes),
                       // Menambahkan circular border agar lebih rapi
